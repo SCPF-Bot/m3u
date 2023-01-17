@@ -1,11 +1,15 @@
 #!/bin/bash
 
-URL="https://sample-videos.com/video123/mp4/240/big_buck_bunny_240p_1mb.mp4"
+URL=""
 
 APILOGIN="4fnvjnFdY1Z18hZL"
 APIKEY="qn9BJx6KvciyhG7d"
 
+DATENOW=$(date +'%Y.%m.%d')
+RANDOM=$$
+
 wget -q --random-wait $URL
+mv *.mp4 $DATENOW.$RANDOM.mp4
 LSMAIN=$(ls --ignore=*.sh)
 FILENAME=$(echo "$LSMAIN")
 wget -q --random-wait https://github.com/storj/storj/releases/latest/download/uplink_linux_amd64.zip
