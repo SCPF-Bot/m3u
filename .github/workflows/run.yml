@@ -2,8 +2,7 @@ name: Run
 
 on:
   push:
-    paths: 
-      - "/script.sh"
+    paths: "*"
 
   workflow_dispatch:
 
