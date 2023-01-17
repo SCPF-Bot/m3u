@@ -25,6 +25,7 @@ echo "HASH ID:
 $HASHID
 
 VIDEO LINK:
-https://sltube.org/v/$HASHID"
+https://sltube.org/v/$HASHID
 
+STORJ LINK:"
 uplink share --url --not-after=none sj://root/NSFW/$FILENAME | grep -i "link.storjshare" | cut -b 13-
