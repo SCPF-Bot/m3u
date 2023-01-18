@@ -12,11 +12,11 @@ wget -q --random-wait $URL
 mv *.mp4 $DATENOW.$RANDOM.mp4
 LSMAIN=$(ls --ignore=*.sh)
 FILENAME=$(echo "$LSMAIN")
-wget -q --random-wait https://github.com/storj/storj/releases/latest/download/uplink_linux_amd64.zip
-unzip -qq -o uplink_linux_amd64.zip
-sudo install uplink /usr/local/bin/uplink
-uplink access import main .github/workflows/accessgrant.txt
-uplink cp --no-progress $FILENAME sj://root/NSFW/$DATENOW/
+#wget -q --random-wait https://github.com/storj/storj/releases/latest/download/uplink_linux_amd64.zip
+#unzip -qq -o uplink_linux_amd64.zip
+#sudo install uplink /usr/local/bin/uplink
+#uplink access import main .github/workflows/accessgrant.txt
+#uplink cp $FILENAME --no-progress sj://root/NSFW/$DATENOW/
 
 UPLOADURL=$(curl -s -X GET "https://api.streamlare.com/api/file/upload/generate?login=$APILOGIN&key=$APIKEY" | jq -r '.result')
 HASHID=$(curl -s -k -F file=@$FILENAME -F login=$APILOGIN -F key=$APIKEY -F folder=NSFW $UPLOADURL | jq -r '.result.hashid')
@@ -28,4 +28,4 @@ VIDEO LINK:
 https://sltube.org/v/$HASHID
 
 STORJ LINK:"
-uplink share --url --not-after=none sj://root/NSFW/$DATENOW/$FILENAME | grep -i "link.storjshare" | cut -b 13-
+#uplink share --url --not-after=none sj://root/NSFW/$DATENOW/$FILENAME | grep -i "link.storjshare" | cut -b 13-
