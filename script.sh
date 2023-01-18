@@ -16,7 +16,7 @@ wget -q --random-wait https://github.com/storj/storj/releases/latest/download/up
 unzip -qq -o uplink_linux_amd64.zip
 sudo install uplink /usr/local/bin/uplink
 uplink access import main .github/workflows/accessgrant.txt
-uplink cp $FILENAME sj://root/NSFW/
+uplink cp $FILENAME sj://root/NSFW/$DATENOW/
 
 UPLOADURL=$(curl -s -X GET "https://api.streamlare.com/api/file/upload/generate?login=$APILOGIN&key=$APIKEY" | jq -r '.result')
 HASHID=$(curl -s -k -F file=@$FILENAME -F login=$APILOGIN -F key=$APIKEY $UPLOADURL | jq -r '.result.hashid')
@@ -28,4 +28,4 @@ VIDEO LINK:
 https://sltube.org/v/$HASHID
 
 STORJ LINK:"
-uplink share --url --not-after=none sj://root/NSFW/$FILENAME | grep -i "link.storjshare" | cut -b 13-
+uplink share --url --not-after=none sj://root/NSFW/$DATENOW/$FILENAME | grep -i "link.storjshare" | cut -b 13-
