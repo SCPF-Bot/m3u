@@ -1,6 +1,6 @@
 #!/bin/bash
 
-URL="https://vdownload-41.sb-cd.com/1/2/12962170-720p.mp4?secure=rl0fkL7QPXRcqVZL7xNlZw,1674043558&m=41&d=1&_tid=12962170"
+URL="https://vdownload-49.sb-cd.com/1/2/12959408-480p.mp4?secure=v4mkZG4R1BG8AiVKqzgN-g,1674051265&m=49&d=1&_tid=12959408"
 
 APILOGIN="4fnvjnFdY1Z18hZL"
 APIKEY="qn9BJx6KvciyhG7d"
@@ -16,10 +16,10 @@ wget -q --random-wait https://github.com/storj/storj/releases/latest/download/up
 unzip -qq -o uplink_linux_amd64.zip
 sudo install uplink /usr/local/bin/uplink
 uplink access import main .github/workflows/accessgrant.txt
-uplink cp $FILENAME sj://root/NSFW/$DATENOW/
+uplink cp --no-progress $FILENAME sj://root/NSFW/$DATENOW/
 
 UPLOADURL=$(curl -s -X GET "https://api.streamlare.com/api/file/upload/generate?login=$APILOGIN&key=$APIKEY" | jq -r '.result')
-HASHID=$(curl -s -k -F file=@$FILENAME -F login=$APILOGIN -F key=$APIKEY $UPLOADURL | jq -r '.result.hashid')
+HASHID=$(curl -s -k -F file=@$FILENAME -F login=$APILOGIN -F key=$APIKEY -F folder=NSFW $UPLOADURL | jq -r '.result.hashid')
 
 echo "HASH ID:
 $HASHID
