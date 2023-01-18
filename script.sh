@@ -1,6 +1,6 @@
 #!/bin/bash
 
-URL=""
+URL="https://vdownload-41.sb-cd.com/1/2/12962170-720p.mp4?secure=rl0fkL7QPXRcqVZL7xNlZw,1674043558&m=41&d=1&_tid=12962170"
 
 APILOGIN="4fnvjnFdY1Z18hZL"
 APIKEY="qn9BJx6KvciyhG7d"
