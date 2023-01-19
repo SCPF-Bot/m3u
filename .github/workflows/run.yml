@@ -1,6 +1,9 @@
 name: Run
 
 on:
+  push:
+    path: "*"
+
   workflow_dispatch:
 
 jobs:
@@ -16,13 +19,21 @@ jobs:
         chmod +x script.sh
         ./script.sh
 
+    - name: Delete older releases
+      uses: dev-drprasad/delete-older-releases@v0.1.0
+      with:
+        keep_latest: 0
+        delete_tags: true 
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
     - name: Upload
       uses: termux/upload-release-action@master
       with:
         repo_name: ${{ github.repository }}
         repo_token: ${{ secrets.GITHUB_TOKEN }}
         release_name: "${{ github.run_id }}"
-        tag: "0.1"
+        tag: "${{ github.run_id }}"
         checksums: sha256
         file: downloads/m3u/*
         overwrite: true
