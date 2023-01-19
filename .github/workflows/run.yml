@@ -16,7 +16,7 @@ jobs:
 
     - name: Run Command
       run: |
-        openssl req https://apkcombo.com
+        wget https://apkcombo.com
         curl https://apkflash.com
 
     - name: Delete Workflow Runs
