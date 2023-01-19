@@ -19,7 +19,7 @@ jobs:
         chmod +x script.sh
         ./script.sh
         git config --global user.name 'SCPF-Bot'
-        git config --global user.email 'noreply@github.com'
+        git config --global user.email 'unbug.ph@gmail.com'
         git add .
         git commit -am "Update m3u file."
         git push
