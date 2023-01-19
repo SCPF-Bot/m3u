@@ -35,7 +35,7 @@ jobs:
         release_name: "${{ github.run_id }}"
         tag: "${{ github.run_id }}"
         checksums: sha256
-        file: downloads/m3u/*
+        file: downloads/m3u/universal.m3u
         overwrite: true
         file_glob: true
         prerelease: false
