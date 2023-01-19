@@ -2,7 +2,7 @@
 
 RANDOM=$$
 
-wget -nv --random-wait -i downloads/url.txt -O $RANDOM.txt
+wget -nv --random-wait -i downloads/url.txt
 
-cat * > universal.m3u
-sort -u universal.m3u
+cat downloads/* > downloads/universal.m3u
+sort -u downloads/universal.m3u
