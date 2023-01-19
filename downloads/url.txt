@@ -19,3 +19,4 @@ https://raw.githubusercontent.com/bevingt/iptv/main/TV.m3u
 https://raw.githubusercontent.com/smarttvbox02/jamkidiptv/main/stbiptv
 https://raw.githubusercontent.com/UOJt8rASW/iptv/master/best
 https://raw.githubusercontent.com/kikukitv/Xyz/main/IPTV%20ALL
+https://iptv-org.github.io/iptv/index.m3u
