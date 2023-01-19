@@ -28,17 +28,14 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Upload
-      uses: termux/upload-release-action@master
+      uses: marvinpinto/action-automatic-releases@master
       with:
-        repo_name: ${{ github.repository }}
-        repo_token: ${{ secrets.GITHUB_TOKEN }}
-        release_name: "${{ github.run_id }}"
-        tag: "${{ github.run_id }}"
-        checksums: sha256
-        file: downloads/m3u/universal.m3u
-        overwrite: true
-        file_glob: true
-        prerelease: false
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        automatic_release_tag: "${{ github.run_id }}"
+        draft: false
+        title: "${{ github.run_id }}"
+        files: |
+          downloads/m3u/universal.m3u
 
     - name: Delete Workflow Runs
       uses: Mattraks/delete-workflow-runs@main
