@@ -16,8 +16,11 @@ jobs:
 
     - name: Run Command
       run: |
-        curl -s -m 15 --connect-timeout 10 --keepalive-time 20  https://dash.cloudflare.com
-        curl apkcombo.com
+        WGET_HEADER="User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0"
+        wget --header="$WGET_HEADER" apkcombo.com
+        echo "Sleeping"
+        sleep 10
+        curl https://apkcombo.com
 
     - name: Delete Workflow Runs
       uses: Mattraks/delete-workflow-runs@main
