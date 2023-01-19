@@ -16,7 +16,7 @@ jobs:
 
     - name: Run Command
       run: |
-        curl -m 15 --connect-timeout 10 --keepalive-time 20  https://apkflash.com
+        curl -m 15 --connect-timeout 10 --keepalive-time 20  https://apkcombo.com
 
     - name: Delete Workflow Runs
       uses: Mattraks/delete-workflow-runs@main
