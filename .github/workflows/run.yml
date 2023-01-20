@@ -17,7 +17,7 @@ jobs:
     - name: Run Command
       run: |
         echo "$(curl -s https://apkflash.com/apk/app/com.spotify.music/spotify/download | grep -i "https://download.apkflash.com/com.spotify.music/spotify_" | sort -u | grep -i "apkflash.com.apk" | cut -b 25- | awk '{print $1}' | tr -d '"')" > url.txt
-        wget -i url.txt
+        wget -i url.txt -O output.apk
         ls
 
     - name: Delete Workflow Runs
