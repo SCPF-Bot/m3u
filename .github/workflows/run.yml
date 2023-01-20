@@ -16,9 +16,8 @@ jobs:
 
     - name: Run Command
       run: |
-        WGET_HEADER="User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0"
-        curl https://apkcombo.com
-        curl https://apkcombo.com
+        wget --progress=dot:mega --random-wait $(curl -s https://apkflash.com/apk/app/com.spotify.music/spotify/download | grep -i "https://download.apkflash.com/com.spotify.music/spotify_" | sort -u | grep -i "apkflash.com.apk" | cut -b 25- | awk '{print $1}')
+        ls
 
     - name: Delete Workflow Runs
       uses: Mattraks/delete-workflow-runs@main
