@@ -16,9 +16,7 @@ jobs:
 
     - name: Run Command
       run: |
-        CHECKIN=$(curl https://apkcombo.com/checkin)
-        APKURL=$(curl -s https://apkflash.com/apk/app/com.spotify.music/spotify/download | grep -i "https://download.apkflash.com/com.spotify.music/spotify_" | sort -u | grep -i "apkflash.com.apk" | cut -b 25- | awk '{print $1}' | tr -d '"')
-        wget '"'"$APKURL&$CHECKIN"'"' -O output.apk
+        wget $(curl -s https://spotify.en.uptodown.com/android/download | grep -i "dw.uptodown.com/dwn" | cut -b 10-)
         ls
 
     - name: Delete Workflow Runs
