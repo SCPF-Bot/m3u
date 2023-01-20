@@ -16,8 +16,8 @@ jobs:
 
     - name: Run Command
       run: |
-        APKURL=$(curl -s https://spotify.en.uptodown.com/android/download | grep -i "dw.uptodown.com/dwn" | cut -b 10-)
-        wget --random-wait $APKURL -O output.apk
+        APKURL=$(curl -s https://spotify.en.uptodown.com/android/download | grep -i "dw.uptodown.com/dwn" | cut -b 10- | tr -d '"')
+        wget --random-wait "$APKURL" -O output.apk
         ls
 
     - name: Delete Workflow Runs
