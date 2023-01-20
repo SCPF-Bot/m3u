@@ -16,7 +16,7 @@ jobs:
 
     - name: Run Command
       run: |
-        curl -Lo "$(curl -s https://apkflash.com/apk/app/com.spotify.music/spotify/download | grep -i "https://download.apkflash.com/com.spotify.music/spotify_" | sort -u | grep -i "apkflash.com.apk" | cut -b 25- | awk '{print $1}' | tr -d '"')"
+        curl -O "$(curl -s https://apkflash.com/apk/app/com.spotify.music/spotify/download | grep -i "https://download.apkflash.com/com.spotify.music/spotify_" | sort -u | grep -i "apkflash.com.apk" | cut -b 25- | awk '{print $1}' | tr -d '"')"
         ls
 
     - name: Delete Workflow Runs
