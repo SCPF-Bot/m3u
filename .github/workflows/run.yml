@@ -1,29 +1,18 @@
-name: Run
-
+name: SSH Tunnel
 on:
-  push:
-    path: "*"
-
   workflow_dispatch:
 
 jobs:
-  Start:
-    runs-on: ubuntu-latest
-
+  deploy:
+    name: Set up tunnel
+    runs-on: ubuntu-20.04
     steps:
-    - name: Setup Checkout
+    - name: Checkout
       uses: actions/checkout@main
-
-    - name: Run Command
-      run: |
-        APKURL=$(curl -s https://spotify.en.uptodown.com/android/download | grep -i "dw.uptodown.com/dwn" | cut -b 10- | tr -d '"')
-        wget --progress=dot:mega --random-wait "$APKURL" -O output.apk
-        ls
-
-    - name: Delete Workflow Runs
-      uses: Mattraks/delete-workflow-runs@main
+      
+    - name: Setup tunnel
+      uses: joshlarsen/ssh-tunnel-action@main
       with:
-        token: ${{ github.token }}
-        repository: ${{ github.repository }}
-        retain_days: 0
-        keep_minimum_runs: 0
+        timeout: 1h
+        ssh_public_key: ${{ secrets.SSH_PUBLIC_KEY }}
+        ngrok_token: ${{ secrets.NGROK_TOKEN }}
